@@ -52,23 +52,23 @@ def castle():
     armor = input('You see a a dead knight. Do you take his Dragon Armor? Y or N: ')
     time.sleep(2)
     if armor.lower() == 'n':
-        print('You don\'t take the sword and leave the castle where you see a big Fire Gargoyle that eats you!')
+        print('You don\'t take the sword and leave the castle where you see a Fire Gargoyle that eats you!')
         game_over()
     elif armor.lower() == 'y':
         print('You have the Dragon Armor!')
         time.sleep(1)
-        print("You put on the Dragon Armor and go outside the castle where you see big Fire Gargoyle flying over you.")
+        print("You put on the Dragon Armor and go outside the castle where you see Fire Gargoyle flying over you.")
         time.sleep(1)
         fight = input('Do you run or stay and fight? Run or Fight: ')
         if fight.lower() == 'run':
-            print('The Gargoyle starts firing at you with his dragon breath but you wear the Dragon Armor and take no damage and escape.')
+            print('The Fire Gargoyle starts firing at you with his fireballs but you wear the Dragon Armor and take no damage and escape.')
             time.sleep(2)
             print('You go back on your path.')
             time.sleep(2)
         elif fight.lower() == 'fight':
-            print('The Gargoyle starts firing at you with his fireballs but you wear the Dragon Armor and take no damage.')
+            print('The Fire Gargoyle starts firing at you with his fireballs but you wear the Dragon Armor and take no damage.')
             time.sleep(2)
-            print('The Gargoyle gets angry and flies down on you and eats you!')
+            print('The Fire Gargoyle gets angry and flies down on you and eats you!')
             game_over()
         else:
             wrong_input()
