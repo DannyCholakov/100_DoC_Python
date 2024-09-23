@@ -48,5 +48,4 @@ def continue_operation(result):
     elif calculation == 'end':
         exit()
 
-
 new_calculation()
