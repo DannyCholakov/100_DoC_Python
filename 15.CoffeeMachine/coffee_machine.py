@@ -9,12 +9,19 @@ machine_ingredients = {
     'sugar': 500
 }
 
+# Variable to track total money made
+total_money_made = 0.0
 
 def begin():
     print(art.machine)
 
-    # Select coffee by name or number
-    coffee_choice = input('What coffee do you want? (name or number): ').strip().lower()
+    # Select coffee by name or number or get a report
+    coffee_choice = input('What coffee do you want? (name or number or type "report" to see status): ').strip().lower()
+
+    if coffee_choice == "report":
+        generate_report()  # Call the report function
+        begin()  # Restart after showing report
+        return
 
     coffee_names = list(dictionary.coffee_menu.keys())
 
@@ -68,6 +75,8 @@ def coins_needed(coffee_choice):
 
         if coins_put >= coffee_price:
             print('Your coffee is being made...')
+            global total_money_made
+            total_money_made += coffee_price  # Update total money made
             change = round(coins_put - coffee_price, 2)
 
             # Calculate change
@@ -92,6 +101,16 @@ def coins_needed(coffee_choice):
         else:
             print(f'Insufficient funds! You entered {coins_put} CHF but need {coffee_price} CHF.')
             print('Please try again.')
+
+
+def generate_report():
+    """Generate a report of remaining ingredients and total money made."""
+    print("\n--- Report ---")
+    print("Remaining Ingredients:")
+    for ingredient, amount in machine_ingredients.items():
+        print(f"{ingredient.capitalize()}: {amount}ml")
+    print(f"\nTotal Money Made: {total_money_made:.2f} CHF")
+    print("----------------\n")
 
 
 def ask_another_coffee():
